@@ -5,63 +5,129 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Interfolio Instructions - UConn Sociology</title>
 <style>
-  :root { --accent: #0071e3; --text: #1d1d1f; --text2: #86868b; --bg: #fbfbfd; --card: #ffffff; --border: #e8e8ed; }
+  :root { --accent: #0071e3; --text: #1d1d1f; --text2: #86868b; --text3: #a1a1a6; --bg: #fbfbfd; --card: #ffffff; --border: #e8e8ed; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; font-size: 17px; line-height: 1.8; color: var(--text); background: var(--bg); display: flex; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; font-size: 17px; line-height: 1.7; color: var(--text); background: var(--bg); display: flex; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: "kern" 1, "liga" 1; }
 
-  .sidebar { position: fixed; top: 0; left: 0; width: 260px; height: 100vh; overflow-y: auto; background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-right: 1px solid var(--border); padding: 28px 0; z-index: 100; }
-  .sidebar h2 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text2); padding: 0 24px 16px; margin: 0; display: block; }
+  /* SKIP LINK */
+  .skip-link { position: absolute; left: -9999px; top: 0; padding: 8px 16px; background: var(--accent); color: #fff; text-decoration: none; z-index: 9999; border-radius: 0 0 6px 0; font-weight: 600; }
+  .skip-link:focus { left: 0; top: 0; }
+
+  /* SIDEBAR */
+  .sidebar { position: fixed; top: 0; left: 0; width: 260px; height: 100vh; overflow-y: auto; background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-right: 1px solid var(--border); padding: 28px 0; z-index: 100; }
+  .sidebar h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; color: var(--text3); padding: 0 24px 16px; margin: 0; display: block; }
   .sidebar a { display: block; padding: 7px 24px; color: var(--text2); text-decoration: none; font-size: 14px; transition: all 0.15s; }
   .sidebar a:hover { color: var(--text); background: rgba(0,0,0,0.04); }
-  .sidebar a.active { color: var(--accent); font-weight: 600; }
+  .sidebar a.active { color: var(--accent); font-weight: 600; background: rgba(0,113,227,0.06); }
   .sidebar a.indent { padding-left: 40px; font-size: 13px; }
   .sidebar .sep { height: 1px; background: var(--border); margin: 10px 24px; }
 
-  .main { margin-left: 260px; max-width: 720px; padding: 60px 50px 100px; }
-  .title-block { text-align: center; margin-bottom: 60px; }
-  .title-block h1 { font-size: 40px; font-weight: 700; letter-spacing: -0.5px; color: var(--text); line-height: 1.15; border: none; margin: 0; padding: 0; }
-  .title-block .subtitle { font-size: 20px; color: var(--text2); margin-top: 8px; font-weight: 400; }
-  .title-block .dept { font-size: 15px; color: var(--text2); margin-top: 4px; }
+  /* MOBILE NAV */
+  .mobile-nav { display: none; }
 
-  h1 { font-size: 28px; font-weight: 700; color: var(--text); margin: 56px 0 16px; letter-spacing: -0.3px; }
+  /* MAIN */
+  .main { margin-left: 260px; max-width: 740px; padding: 60px 50px 100px; }
+
+  /* TITLE BLOCK (left-aligned) */
+  .title-block { text-align: left; margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .title-block .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--text3); margin-bottom: 12px; }
+  .title-block h1 { font-size: 40px; font-weight: 700; letter-spacing: -0.6px; color: var(--text); line-height: 1.15; border: none; margin: 0; padding: 0; }
+  .title-block .subtitle { font-size: 20px; color: var(--text2); margin-top: 10px; font-weight: 400; }
+  .title-block .dept { font-size: 15px; color: var(--text3); margin-top: 6px; }
+
+  /* SECTION TAGS */
+  .section-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--text3); margin: 48px 0 4px; }
+  .section-tag + h1 { margin-top: 4px; }
+
+  h1 { font-size: 28px; font-weight: 700; color: var(--text); margin: 56px 0 16px; letter-spacing: -0.4px; line-height: 1.2; }
   h1:first-of-type { margin-top: 0; }
-  h2 { font-size: 22px; font-weight: 600; color: var(--text); margin: 36px 0 12px; }
+  h2 { font-size: 22px; font-weight: 600; color: var(--text); margin: 36px 0 12px; letter-spacing: -0.2px; line-height: 1.3; }
   p { margin: 12px 0; color: #424245; }
 
+  /* STEPS */
   .step { display: flex; gap: 14px; margin: 14px 0; padding: 16px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
-  .step-num { font-weight: 700; color: var(--accent); white-space: nowrap; min-width: 56px; }
+  .step-num { font-weight: 700; color: var(--accent); white-space: nowrap; min-width: 64px; font-variant-numeric: tabular-nums; letter-spacing: -0.1px; }
   .step-text { flex: 1; }
-  .sub-step { margin: 6px 0 6px 70px; padding: 10px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
-  .ui { font-weight: 600; color: var(--text); }
+  .sub-step { margin: 6px 0 6px 78px; padding: 10px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
 
-  .callout { margin: 18px 0; padding: 16px 20px; border-radius: 12px; font-size: 16px; }
-  .callout-confirm { background: #e8f5e9; color: #2e7d32; }
-  .callout-confirm::before { content: "\2705  "; }
-  .callout-important { background: #fff3e0; color: #e65100; }
-  .callout-important::before { content: "\26A0\FE0F  "; }
-  .callout-tip { background: #e3f2fd; color: #1565c0; }
-  .callout-tip::before { content: "\1F4A1  "; }
+  /* UI PILLS */
+  .ui { font-weight: 600; color: var(--text); background: rgba(0,0,0,0.05); padding: 1px 7px; border-radius: 5px; font-size: 0.95em; font-variant-numeric: tabular-nums; }
 
-  .readonly-badge { display: inline-block; background: #fff3e0; color: #e65100; font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 6px; vertical-align: middle; margin-left: 8px; }
+  /* CALLOUTS — colored stripe + label */
+  .callout { margin: 18px 0; padding: 14px 18px 14px 18px; border-radius: 8px; font-size: 16px; border-left: 4px solid; }
+  .callout::before { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 4px; }
+  .callout-confirm { background: #e8f9ed; color: #1d1d1f; border-left-color: #34c759; }
+  .callout-confirm::before { content: "Confirm"; color: #248a3d; }
+  .callout-important { background: #fff5e6; color: #1d1d1f; border-left-color: #ff9500; }
+  .callout-important::before { content: "Important"; color: #c93400; }
+  .callout-tip { background: #e8f2fd; color: #1d1d1f; border-left-color: #0071e3; }
+  .callout-tip::before { content: "Tip"; color: #0071e3; }
 
+  /* READ-ONLY BADGE */
+  .readonly-badge { display: inline-block; background: #fff5e6; color: #c93400; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; vertical-align: middle; margin-left: 10px; border: 1px solid #ffe0b3; }
+
+  /* SCREENSHOTS */
   .screenshot { margin: 20px 0; text-align: center; }
   .screenshot img { max-width: 100%; border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
   .screenshot .caption { font-size: 14px; color: var(--text2); font-style: italic; margin-top: 8px; }
 
-  .checklist { list-style: none; padding: 0; }
+  /* CHECKLIST + COLLAPSED <details> button-style */
+  details.checklist-wrap { margin: 20px 0; }
+  summary.checklist-summary { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--border); background: var(--card); border-radius: 8px; cursor: pointer; font-weight: 600; color: var(--text); font-size: 15px; transition: all 0.15s; list-style: none; user-select: none; }
+  summary.checklist-summary::-webkit-details-marker { display: none; }
+  summary.checklist-summary::after { content: "\25BE"; color: var(--text2); transition: transform 0.2s; }
+  details[open] summary.checklist-summary::after { transform: rotate(180deg); }
+  summary.checklist-summary:hover { border-color: var(--accent); color: var(--accent); }
+  details[open] summary.checklist-summary { border-color: var(--accent); color: var(--accent); }
+  .checklist { list-style: none; padding: 0; margin-top: 12px; }
   .checklist li { padding: 12px 16px; margin: 6px 0; background: var(--card); border: 1px solid var(--border); border-radius: 10px; display: flex; align-items: center; gap: 12px; }
-  .checklist input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--accent); }
+  .checklist input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--accent); flex-shrink: 0; }
+  .checklist-reset { display: inline-block; margin-top: 12px; font-size: 13px; color: var(--text2); cursor: pointer; text-decoration: underline; }
+  .checklist-reset:hover { color: var(--accent); }
 
+  /* FAQ */
   .faq-item { margin: 10px 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
   .faq-q { padding: 14px 18px; font-weight: 600; background: var(--card); }
   .faq-a { padding: 14px 18px; color: #424245; border-top: 1px solid var(--border); }
 
-  @media (max-width: 800px) { .sidebar { display: none; } .main { margin-left: 0; padding: 24px; } }
-  @media print { .sidebar { display: none; } .main { margin-left: 0; max-width: 100%; } .step { break-inside: avoid; } }
-  html { scroll-behavior: smooth; }
+  /* INLINE LINKS */
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* MOBILE */
+  @media (max-width: 800px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; padding: 24px; }
+    .mobile-nav { display: block; width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 24px; font-size: 16px; background: var(--card); color: var(--text); -webkit-appearance: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2386868b' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+    .title-block h1 { font-size: 30px; }
+    .step { flex-direction: column; gap: 6px; }
+    .step-num { min-width: auto; }
+    .sub-step { margin-left: 0; }
+  }
+
+  /* PRINT */
+  @media print {
+    @page { margin: 0.75in; }
+    body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+    .sidebar, .mobile-nav, .skip-link { display: none !important; }
+    details.checklist-wrap { display: none; }
+    .main { margin-left: 0; max-width: 100%; padding: 0; }
+    h1 { page-break-after: avoid; font-size: 18pt; margin-top: 24pt; }
+    h2 { page-break-after: avoid; font-size: 14pt; }
+    .step, .sub-step, .callout, .screenshot, .faq-item { page-break-inside: avoid; box-shadow: none; }
+    .step, .sub-step, .callout, .faq-item { background: #fff; border: 1px solid #ccc; }
+    .screenshot img { max-width: 80%; box-shadow: none; }
+    .ui { background: transparent; padding: 0; border: 1px solid #ccc; padding: 0 4px; }
+    a[href^="http"]::after, a[href^="mailto"]::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #555; word-break: break-all; }
+    a[href^="#"]::after { content: ""; }
+    .section-tag { color: #555; }
+  }
 </style>
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- SIDEBAR NAVIGATION -->
 <nav class="sidebar">
@@ -96,20 +162,50 @@
 </nav>
 
 <!-- MAIN CONTENT -->
-<div class="main">
+<div class="main" id="main-content">
+
+<select class="mobile-nav" aria-label="Jump to section">
+  <option value="">Jump to section&hellip;</option>
+  <option value="#checklist">Before You Start</option>
+  <option value="#getting-started">Getting Started</option>
+  <option value="#common-steps">How to Add an Entry</option>
+  <option value="#scholarly">1. Scholarly Contributions</option>
+  <option value="#coauthor">&nbsp;&nbsp;&nbsp;Adding a Co-Author</option>
+  <option value="#grants">2. Grants</option>
+  <option value="#teaching">3. Scheduled Teaching</option>
+  <option value="#teaching-innovation">4. Teaching Innovation</option>
+  <option value="#other-instructional">5. Other Instructional</option>
+  <option value="#advising-undergrad">6. Advising (Undergrad)</option>
+  <option value="#advising-grad">7. Advising (Graduate)</option>
+  <option value="#mentoring">8. Mentoring</option>
+  <option value="#student-support">9. Student Support</option>
+  <option value="#awards">10. Awards and Honors</option>
+  <option value="#industry-collab">11. Industry/Faculty Collab</option>
+  <option value="#peer-review">12. Ad Hoc Reviews</option>
+  <option value="#technical">13. Technical/Expert</option>
+  <option value="#professional-org">14. Professional Orgs</option>
+  <option value="#public-service">15. Public Service</option>
+  <option value="#university-service">16. University Service</option>
+  <option value="#visiting">17. Visiting Positions</option>
+  <option value="#media">18. Media Appearances</option>
+  <option value="#prof-dev">19. Professional Dev</option>
+  <option value="#vita">Generate Merit Report</option>
+  <option value="#troubleshooting">Troubleshooting</option>
+</select>
 
 <div class="title-block">
-  <h1>Faculty Activity Reporting<br>for Merit Review 2025&ndash;26</h1>
+  <div class="eyebrow">Department of Sociology &middot; UConn</div>
+  <h1>Faculty Activity Reporting for Merit Review 2025&ndash;26</h1>
   <div class="subtitle">Step-by-Step Instructions for Interfolio</div>
-  <div class="dept">Department of Sociology, University of Connecticut</div>
 </div>
 
 <!-- ===== BEFORE YOU START ===== -->
+<div class="section-tag">Overview</div>
 <h1 id="checklist">Before You Start</h1>
 <p>This guide walks you through entering your activities from the past year into Interfolio for your annual merit review. Set aside about 30&ndash;60 minutes. Before you begin, gather a list of your activities from the past year (publications, grants, teaching, service, etc.).</p>
 
-<details style="margin-top:16px;">
-<summary style="cursor:pointer; font-weight:600; color:var(--accent); font-size:16px; padding:10px 0;">Click here to open progress checklist &darr;</summary>
+<details class="checklist-wrap">
+<summary class="checklist-summary">Open progress checklist</summary>
 <ul class="checklist" style="margin-top:8px;">
   <li><input type="checkbox"> <span>Scholarly Contributions and Creative Productions</span></li>
   <li><input type="checkbox"> <span>Grants</span></li>
@@ -132,12 +228,14 @@
   <li><input type="checkbox"> <span>Professional Development</span></li>
   <li><input type="checkbox"> <span>Generate your Merit Vita report</span></li>
 </ul>
+<a class="checklist-reset" id="checklist-reset">Reset checklist</a>
 </details>
 
 <!-- ===== GETTING STARTED ===== -->
+<div class="section-tag">Guide</div>
 <h1 id="getting-started">Getting Started</h1>
 
-<div class="step"><span class="step-num">Step 1.</span><span class="step-text">Open your web browser (Chrome, Firefox, or Safari) and go to: <span class="ui">account.interfolio.com</span></span></div>
+<div class="step"><span class="step-num">Step 1.</span><span class="step-text">Open your web browser (Chrome, Firefox, or Safari) and go to: <a href="https://account.interfolio.com" class="ui">account.interfolio.com</a></span></div>
 
 <div class="step"><span class="step-num">Step 2.</span><span class="step-text">You will see a Sign In page. <strong>Do NOT type in the Email or Password fields on the left side.</strong> Instead, on the right side, click the button that says <span class="ui">Sign in with Partner Institution</span>.</span></div>
 
@@ -160,6 +258,7 @@
 <div class="callout callout-confirm">A list of categories such as &ldquo;Scholarly Contributions and Creative Productions,&rdquo; &ldquo;Grants,&rdquo; &ldquo;Scheduled Teaching,&rdquo; and others. These are the categories where you will enter your activities.</div>
 
 <!-- ===== HOW TO ADD AN ENTRY ===== -->
+<div class="section-tag">Reference</div>
 <h1 id="common-steps">How to Add an Entry (Common Steps)</h1>
 <p>Most categories follow the same steps. Read this section once, then refer back to it as needed.</p>
 
@@ -177,6 +276,7 @@
 <!-- ===== CATEGORIES (in original document order) ===== -->
 
 <!-- 1. SCHOLARLY CONTRIBUTIONS -->
+<div class="section-tag">Category 1</div>
 <h1 id="scholarly">1. Scholarly Contributions and Creative Productions</h1>
 <p>Enter your publications from the past year: journal articles, book chapters, conference papers, reports, etc.</p>
 
@@ -215,81 +315,100 @@
 <div class="callout callout-confirm">The co-author&rsquo;s name now appears in the Coauthor table on your form. Repeat these steps to add more co-authors.</div>
 
 <!-- 2. GRANTS -->
+<div class="section-tag">Category 2</div>
 <h1 id="grants">2. Grants</h1>
 <p>Enter any grant applications you submitted or grants you received in the past year.</p>
 
 <!-- 3. SCHEDULED TEACHING -->
+<div class="section-tag">Category 3</div>
 <h1 id="teaching">3. Scheduled Teaching <span class="readonly-badge">READ-ONLY</span></h1>
 <div class="callout callout-important">You do NOT need to enter anything here. Your teaching records are automatically imported from the Student Administration System.</div>
-<p>Just review them to make sure they are correct. If you see an error, contact <strong>registrarscheduling@uconn.edu</strong>.</p>
+<p>Just review them to make sure they are correct. If you see an error, contact <a href="mailto:registrarscheduling@uconn.edu"><strong>registrarscheduling@uconn.edu</strong></a>.</p>
 
 <!-- 4. TEACHING INNOVATION -->
+<div class="section-tag">Category 4</div>
 <h1 id="teaching-innovation">4. Teaching Innovation and Curriculum Development</h1>
 <p>Enter any new teaching practices, curriculum design, or course enhancements you developed.</p>
 
 <!-- 5. OTHER INSTRUCTIONAL -->
+<div class="section-tag">Category 5</div>
 <h1 id="other-instructional">5. Other Instructional Activities</h1>
 <p>Enter instructional activities outside of your regular courses, such as guest lectures, workshops, or seminars.</p>
 
 <!-- 6. ADVISING UNDERGRAD -->
+<div class="section-tag">Category 6</div>
 <h1 id="advising-undergrad">6. Academic Advising &ndash; Undergraduate <span class="readonly-badge">READ-ONLY</span></h1>
 <div class="callout callout-important">You do NOT need to enter anything here. Your undergraduate advising data is automatically imported.</div>
 <p>If you see an error, contact your department administrator.</p>
 
 <!-- 7. ADVISING GRAD -->
+<div class="section-tag">Category 7</div>
 <h1 id="advising-grad">7. Academic Advising &ndash; Graduate / Professional <span class="readonly-badge">READ-ONLY</span></h1>
 <div class="callout callout-important">You do NOT need to enter anything here. Your graduate advising data is automatically imported.</div>
 <p>If you see an error, contact your department administrator.</p>
 
 <!-- 8. MENTORING -->
+<div class="section-tag">Category 8</div>
 <h1 id="mentoring">8. Mentoring for Post Doctorates, Visiting Scholars/Fellows, or Residents</h1>
 <p>Enter mentoring activities for post-docs, visiting scholars, or residents.</p>
 
 <!-- 9. STUDENT SUPPORT -->
+<div class="section-tag">Category 9</div>
 <h1 id="student-support">9. Other Support Activities for Students</h1>
 <p>Enter any support you provided to students outside of teaching or advising, such as advising student organizations, recruitment activities, or informal mentoring.</p>
 
 <!-- 10. AWARDS -->
+<div class="section-tag">Category 10</div>
 <h1 id="awards">10. Awards and Honors</h1>
 <p>Enter any awards or honors you received, including both UConn awards and external recognitions.</p>
 
 <!-- 11. INDUSTRY COLLABORATION -->
+<div class="section-tag">Category 11</div>
 <h1 id="industry-collab">11. Other Industry/Faculty Collaboration</h1>
 <p>Enter collaborations with industry partners or faculty at other institutions, including consulting work, joint initiatives, or advisory roles.</p>
 
 <!-- 12. AD HOC REVIEWS -->
+<div class="section-tag">Category 12</div>
 <h1 id="peer-review">12. Ad Hoc Reviews, Grand Agency/Peer Review Committees</h1>
 <p>Enter any peer review or manuscript review work you did for journals, granting agencies, or other organizations.</p>
 
 <!-- 13. TECHNICAL -->
+<div class="section-tag">Category 13</div>
 <h1 id="technical">13. Technical or Expert Assistance/Technology Transfer</h1>
 <p>Enter any technical advice, expert witness testimony, or technology transfer work you provided to external organizations.</p>
 
 <!-- 14. PROFESSIONAL ORG -->
+<div class="section-tag">Category 14</div>
 <h1 id="professional-org">14. Professional or Voluntry Organization Affiliation</h1>
 <p>Enter your memberships in professional or voluntary organizations, including any leadership roles.</p>
 
 <!-- 15. PUBLIC SERVICE -->
+<div class="section-tag">Category 15</div>
 <h1 id="public-service">15. Public and Professional Service</h1>
 <p>Enter community engagement or professional service outside the university, such as outreach programs or volunteering.</p>
 
 <!-- 16. UNIVERSITY SERVICE -->
+<div class="section-tag">Category 16</div>
 <h1 id="university-service">16. University, Scholl/College, Regional Campus, Department service</h1>
 <p>Enter any committee work, program support, or one-time service activities at UConn. If the activity took place in one day, enter the same date for both start and end.</p>
 
 <!-- 17. VISITING -->
+<div class="section-tag">Category 17</div>
 <h1 id="visiting">17. Visiting Professorships and Fellowships</h1>
 <p>Enter any visiting positions you held at other institutions.</p>
 
 <!-- 18. MEDIA -->
+<div class="section-tag">Category 18</div>
 <h1 id="media">18. Media Appearances &amp; Public Relations</h1>
 <p>Enter any media appearances including TV, radio, podcasts, newspapers, or online platforms.</p>
 
 <!-- 19. PROFESSIONAL DEVELOPMENT -->
+<div class="section-tag">Category 19</div>
 <h1 id="prof-dev">19. Professional Development</h1>
 <p>Enter informal educational or career-advancement activities.</p>
 
 <!-- ===== GENERATING VITA ===== -->
+<div class="section-tag">Final Step</div>
 <h1 id="vita">Generating Your Merit Report (Vita)</h1>
 <p>After you have entered all your activities, you need to generate a formatted report. Follow these steps:</p>
 
@@ -314,6 +433,7 @@
 <div class="callout callout-tip">If something is missing or incorrect, go back to the <span class="ui">Activities</span> tab, find the entry, fix it, and then create a new vita.</div>
 
 <!-- ===== TROUBLESHOOTING ===== -->
+<div class="section-tag">FAQ</div>
 <h1 id="troubleshooting">Troubleshooting</h1>
 
 <div class="faq-item">
@@ -328,7 +448,7 @@
 
 <div class="faq-item">
   <div class="faq-q">My teaching data is wrong.</div>
-  <div class="faq-a">Teaching data is imported automatically. Contact <strong>registrarscheduling@uconn.edu</strong> to report errors.</div>
+  <div class="faq-a">Teaching data is imported automatically. Contact <a href="mailto:registrarscheduling@uconn.edu"><strong>registrarscheduling@uconn.edu</strong></a> to report errors.</div>
 </div>
 
 <div class="faq-item">
@@ -368,6 +488,38 @@ window.addEventListener('scroll', () => {
   links.forEach(l => l.classList.remove('active'));
   if (current) current.link.classList.add('active');
 });
+
+// Mobile nav: jump on select change
+const mobileNav = document.querySelector('.mobile-nav');
+if (mobileNav) {
+  mobileNav.addEventListener('change', e => {
+    if (e.target.value) {
+      location.hash = e.target.value;
+      e.target.value = '';
+    }
+  });
+}
+
+// Checklist persistence via localStorage
+const cbs = document.querySelectorAll('.checklist input[type="checkbox"]');
+cbs.forEach((cb, idx) => {
+  const key = 'interfolio-cl-' + idx;
+  if (localStorage.getItem(key) === '1') cb.checked = true;
+  cb.addEventListener('change', () => {
+    localStorage.setItem(key, cb.checked ? '1' : '0');
+  });
+});
+
+// Reset checklist
+const resetBtn = document.getElementById('checklist-reset');
+if (resetBtn) {
+  resetBtn.addEventListener('click', () => {
+    cbs.forEach((cb, idx) => {
+      cb.checked = false;
+      localStorage.removeItem('interfolio-cl-' + idx);
+    });
+  });
+}
 </script>
 
 </body>
