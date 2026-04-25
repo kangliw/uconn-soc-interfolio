@@ -29,8 +29,8 @@
   /* MAIN */
   .main { margin: 0 auto; max-width: 900px; padding: 60px 60px 100px; }
 
-  /* TITLE BLOCK (left-aligned) */
-  .title-block { text-align: left; margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  /* TITLE BLOCK (centered) */
+  .title-block { text-align: center; margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
   .title-block .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--text3); margin-bottom: 12px; }
   .title-block h1 { font-size: 40px; font-weight: 700; letter-spacing: -0.6px; color: var(--text); line-height: 1.15; border: none; margin: 0; padding: 0; }
   .title-block .subtitle { font-size: 20px; color: var(--text2); margin-top: 10px; font-weight: 400; }
@@ -40,9 +40,10 @@
   .section-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--text3); margin: 48px 0 4px; }
   .section-tag + h1 { margin-top: 4px; }
 
-  h1 { font-size: 28px; font-weight: 700; color: var(--text); margin: 56px 0 16px; letter-spacing: -0.4px; line-height: 1.2; }
+  h1 { font-size: 32px; font-weight: 700; color: var(--text); margin: 56px 0 16px; letter-spacing: -0.4px; line-height: 1.2; }
   h1:first-of-type { margin-top: 0; }
-  h2 { font-size: 22px; font-weight: 600; color: var(--text); margin: 36px 0 12px; letter-spacing: -0.2px; line-height: 1.3; }
+  h2 { font-size: 26px; font-weight: 700; color: var(--text); margin: 40px 0 12px; letter-spacing: -0.2px; line-height: 1.3; }
+  h3 { font-size: 20px; font-weight: 600; color: var(--text); margin: 28px 0 10px; letter-spacing: -0.1px; line-height: 1.35; }
   p { margin: 12px 0; color: #424245; }
 
   /* STEPS */
@@ -134,8 +135,8 @@
 <!-- SIDEBAR NAVIGATION -->
 <nav class="sidebar">
   <h2>Navigation</h2>
-  <a href="#checklist">Before You Start</a>
-  <a href="#getting-started">Getting Started</a>
+  <a href="#instructions">Step-by-Step Instructions</a>
+  <a href="#getting-started" class="indent">Getting Started</a>
   <a href="#common-steps">How to Add an Entry</a>
   <div class="sep"></div>
   <a href="#scholarly">1. Scholarly Contributions</a>
@@ -168,8 +169,8 @@
 
 <select class="mobile-nav" aria-label="Jump to section">
   <option value="">Jump to section&hellip;</option>
-  <option value="#checklist">Before You Start</option>
-  <option value="#getting-started">Getting Started</option>
+  <option value="#instructions">Step-by-Step Instructions</option>
+  <option value="#getting-started">&nbsp;&nbsp;&nbsp;Getting Started</option>
   <option value="#common-steps">How to Add an Entry</option>
   <option value="#scholarly">1. Scholarly Contributions</option>
   <option value="#coauthor">&nbsp;&nbsp;&nbsp;Adding a Co-Author</option>
@@ -198,15 +199,24 @@
 <div class="title-block">
   <div class="eyebrow">Department of Sociology &middot; UConn</div>
   <h1>Faculty Activity Reporting for Merit Review 2025&ndash;26</h1>
-  <div class="subtitle">Step-by-Step Instructions for Interfolio</div>
 </div>
 
-<!-- ===== BEFORE YOU START ===== -->
-<div class="section-tag">Overview</div>
-<h1 id="checklist">Before You Start</h1>
-<p>This guide walks you through entering your activities from the past year into Interfolio for your annual merit review. Set aside about 30&ndash;60 minutes. Before you begin, gather a list of your activities from the past year (publications, grants, teaching, service, etc.).</p>
+<p>To be considered for a merit increase, you must complete your faculty activity report for the period <strong>July 1, 2025 through June 30, 2026</strong> by <strong>noon on May 15, 2026</strong>.</p>
 
-<details class="checklist-wrap">
+<p>After you finish entering your activities, you do <strong>not</strong> need to submit anything. The department head will have access to your activities automatically. If you&rsquo;d still like a PDF of your activities for your own reference, please see the section <strong>&ldquo;Preview Your Activities&rdquo;</strong> below.</p>
+
+<div class="callout callout-tip">
+  <strong>Offered by Department Grad Assistant Kangli Wang</strong><br>
+  <strong>Interfolio Orientation:</strong> Friday, May 1, from 1 to 2pm<br>
+  <strong>Troubleshooting Session:</strong> Wednesday, May 13, from 1 to 2pm<br>
+  [Teams link &mdash; to be added]
+</div>
+
+<!-- ===== STEP-BY-STEP INSTRUCTIONS ===== -->
+<h1 id="instructions">Step-by-Step Instructions for Interfolio</h1>
+<p>This guide walks you through how to enter your activities from the past year into Interfolio for your annual merit review. Plan to set aside approximately 30&ndash;60 minutes to complete the process. Before you begin, it may be helpful to gather a list of your activities (e.g., publications, grants, teaching, and service).</p>
+
+<details class="checklist-wrap" id="checklist">
 <summary class="checklist-summary">Open progress checklist</summary>
 <ul class="checklist" style="margin-top:8px;">
   <li><input type="checkbox"> <span>Scholarly Contributions and Creative Productions</span></li>
@@ -235,11 +245,11 @@
 
 <!-- ===== GETTING STARTED ===== -->
 <div class="section-tag">Guide</div>
-<h1 id="getting-started">Getting Started</h1>
+<h2 id="getting-started">Getting Started</h2>
 
 <div class="step"><span class="step-num">Step 1.</span><span class="step-text">Open your web browser (Chrome, Firefox, or Safari) and go to: <a href="https://account.interfolio.com" class="ui">account.interfolio.com</a></span></div>
 
-<div class="step"><span class="step-num">Step 2.</span><span class="step-text">You will see a Sign In page. <strong>Do NOT type in the Email or Password fields on the left side.</strong> Instead, on the right side, click the button that says <span class="ui">Sign in with Partner Institution</span>.</span></div>
+<div class="step"><span class="step-num">Step 2.</span><span class="step-text">You will see a <strong>Sign In</strong> page. <strong>Do NOT type in the Email or Password fields on the left side.</strong> Instead, on the right side, click the button that says <span class="ui">Sign in with Partner Institution</span>.</span></div>
 
 <div class="screenshot">
   <img src="images/login-signin.png" alt="Screenshot: Interfolio Sign In page - click Sign in with Partner Institution on the right side">
@@ -285,7 +295,7 @@
 
 <!-- 1. SCHOLARLY CONTRIBUTIONS -->
 <div class="section-tag">Category 1</div>
-<h1 id="scholarly">1. Scholarly Contributions and Creative Productions</h1>
+<h2 id="scholarly">1. Scholarly Contributions and Creative Productions</h2>
 <p>Enter your publications from the past year: journal articles, book chapters, conference papers, reports, etc.</p>
 
 <div class="callout callout-tip"><strong>Many types to choose from.</strong> When you click <span class="ui">+ADD</span>, the form asks you to pick a type from a long dropdown: <span class="ui">Journal Article</span>, <span class="ui">Book</span>, <span class="ui">Book Chapter</span>, <span class="ui">Book Review</span>, <span class="ui">Conference Proceedings</span>, <span class="ui">Presentation</span>, <span class="ui">Editorship</span>, <span class="ui">Dataset</span>, and more. Pick the one that best fits your work &mdash; or use <span class="ui">Other Scholarly Work</span> for anything that doesn&rsquo;t fit a specific type but you still want on your Merit Report.</div>
@@ -301,7 +311,7 @@
 </div>
 
 <!-- CO-AUTHOR SECTION (embedded here) -->
-<h2 id="coauthor">How to Add a Co-Author</h2>
+<h3 id="coauthor">How to Add a Co-Author</h3>
 <p>When entering a journal article or other publication, you may need to add co-authors. Here is how:</p>
 
 <div class="step"><span class="step-num">Step 1.</span><span class="step-text">In the Coauthor section of the form, click the blue <span class="ui">+ADD</span> button.</span></div>
@@ -336,23 +346,23 @@
 
 <!-- 2. GRANTS -->
 <div class="section-tag">Category 2</div>
-<h1 id="grants">2. Grants</h1>
+<h2 id="grants">2. Grants</h2>
 <p>Enter any grant applications you submitted or grants you received in the past year.</p>
 
 <!-- 3. SCHEDULED TEACHING -->
 <div class="section-tag">Category 3</div>
-<h1 id="teaching">3. Scheduled Teaching <span class="readonly-badge">READ-ONLY</span></h1>
+<h2 id="teaching">3. Scheduled Teaching <span class="readonly-badge">READ-ONLY</span></h2>
 <div class="callout callout-important">You do NOT need to enter anything here. Your teaching records are automatically imported from the Student Administration System.</div>
 <p>Just review them to make sure they are correct. If you see an error, contact <a href="mailto:registrarscheduling@uconn.edu"><strong>registrarscheduling@uconn.edu</strong></a>.</p>
 
 <!-- 4. TEACHING INNOVATION -->
 <div class="section-tag">Category 4</div>
-<h1 id="teaching-innovation">4. Teaching Innovation and Curriculum Development</h1>
+<h2 id="teaching-innovation">4. Teaching Innovation and Curriculum Development</h2>
 <p>Enter any new teaching practices, curriculum design, or course enhancements you developed.</p>
 
 <!-- 5. OTHER INSTRUCTIONAL -->
 <div class="section-tag">Category 5</div>
-<h1 id="other-instructional">5. Other Instructional Activities</h1>
+<h2 id="other-instructional">5. Other Instructional Activities</h2>
 <p>Enter instructional activities outside of your regular courses, such as guest lectures, workshops, or seminars.</p>
 
 <div class="callout callout-important"><strong>Enter your advisees here.</strong> Log <strong>all</strong> graduate students you advised this year &mdash; both <em>Major Advisees</em> (students whose committee you chair) and <em>Associate Advisees</em> (students whose committee you serve on).</div>
@@ -377,24 +387,24 @@
 
 <!-- 6. ADVISING UNDERGRAD -->
 <div class="section-tag">Category 6</div>
-<h1 id="advising-undergrad">6. Academic Advising &ndash; Undergraduate <span class="readonly-badge">READ-ONLY</span></h1>
+<h2 id="advising-undergrad">6. Academic Advising &ndash; Undergraduate <span class="readonly-badge">READ-ONLY</span></h2>
 <div class="callout callout-important">You do NOT need to enter anything here. Your undergraduate advising data is automatically imported.</div>
-<p>If you see an error, contact your department administrator.</p>
+<p>If you see an error, contact Kathy at <a href="mailto:katherine.covey@uconn.edu">katherine.covey@uconn.edu</a>.</p>
 
 <!-- 7. ADVISING GRAD -->
 <div class="section-tag">Category 7</div>
-<h1 id="advising-grad">7. Academic Advising &ndash; Graduate / Professional <span class="readonly-badge">READ-ONLY</span></h1>
+<h2 id="advising-grad">7. Academic Advising &ndash; Graduate / Professional <span class="readonly-badge">READ-ONLY</span></h2>
 <div class="callout callout-important">You do NOT need to enter anything here. Your graduate advising data is automatically imported.</div>
-<p>If you see an error, contact your department administrator.</p>
+<p>If you see an error, make sure that your graduate student advisees have formally reported you as their major advisor through the University system.</p>
 
 <!-- 8. MENTORING -->
 <div class="section-tag">Category 8</div>
-<h1 id="mentoring">8. Mentoring for Post Doctorates, Visiting Scholars/Fellows, or Residents</h1>
+<h2 id="mentoring">8. Mentoring for Post Doctorates, Visiting Scholars/Fellows, or Residents</h2>
 <p>Enter mentoring activities for post-docs, visiting scholars, or residents.</p>
 
 <!-- 9. STUDENT SUPPORT -->
 <div class="section-tag">Category 9</div>
-<h1 id="student-support">9. Other Support Activities for Students</h1>
+<h2 id="student-support">9. Other Support Activities for Students</h2>
 <p>Enter any support you provided to students outside of teaching or advising, such as advising student organizations, recruitment activities, or informal mentoring.</p>
 
 <div class="callout callout-important"><strong>Log Area Exam committees here.</strong> For each graduate student whose Area Exam committee you served on, add a separate entry in this section.</div>
@@ -409,7 +419,7 @@
 
 <!-- 10. AWARDS -->
 <div class="section-tag">Category 10</div>
-<h1 id="awards">10. Awards and Honors</h1>
+<h2 id="awards">10. Awards and Honors</h2>
 <p>Enter any awards or honors you received, including both UConn awards and external recognitions.</p>
 
 <div class="callout callout-important"><strong>Always set the Semester to when you received the award.</strong> The form defaults to the current semester, but this field is how the department knows <em>when</em> the award was received. If you leave it at the default, we won&rsquo;t be able to tell when the award was actually granted.</div>
@@ -420,12 +430,12 @@
 
 <!-- 11. INDUSTRY COLLABORATION -->
 <div class="section-tag">Category 11</div>
-<h1 id="industry-collab">11. Other Industry/Faculty Collaboration</h1>
+<h2 id="industry-collab">11. Other Industry/Faculty Collaboration</h2>
 <p>Enter collaborations with industry partners or faculty at other institutions, including consulting work, joint initiatives, or advisory roles.</p>
 
 <!-- 12. AD HOC REVIEWS -->
 <div class="section-tag">Category 12</div>
-<h1 id="peer-review">12. Ad Hoc Reviews, Grand Agency/Peer Review Committees</h1>
+<h2 id="peer-review">12. Ad Hoc Reviews, Grand Agency/Peer Review Committees</h2>
 <p>Enter any peer review or manuscript review work you did for journals, granting agencies, or other organizations.</p>
 
 <div class="callout callout-important"><strong>Fill in Start Date and End Date.</strong> Both are required so the department can see which reviews you completed in the past year. If you don&rsquo;t remember the exact dates, an approximate date within the correct month or semester is fine (e.g. <span class="ui">June 1, 2025</span> for a Summer 2025 review).</div>
@@ -436,17 +446,17 @@
 
 <!-- 13. TECHNICAL -->
 <div class="section-tag">Category 13</div>
-<h1 id="technical">13. Technical or Expert Assistance/Technology Transfer</h1>
+<h2 id="technical">13. Technical or Expert Assistance/Technology Transfer</h2>
 <p>Enter any technical advice, expert witness testimony, or technology transfer work you provided to external organizations.</p>
 
 <!-- 14. PROFESSIONAL ORG -->
 <div class="section-tag">Category 14</div>
-<h1 id="professional-org">14. Professional or Voluntry Organization Affiliation</h1>
+<h2 id="professional-org">14. Professional or Voluntry Organization Affiliation</h2>
 <p>Enter your memberships in professional or voluntary organizations, including any leadership roles.</p>
 
 <!-- 15. PUBLIC SERVICE -->
 <div class="section-tag">Category 15</div>
-<h1 id="public-service">15. Public and Professional Service</h1>
+<h2 id="public-service">15. Public and Professional Service</h2>
 <p>Enter community engagement or professional service outside the university, such as outreach programs or volunteering.</p>
 
 <div class="callout callout-tip"><strong>Additional service details.</strong> Use this category for any other service-related activities you&rsquo;d like to show on your Merit Report beyond the ones covered above. The two <span class="ui">If Formal Outreach Program...</span> dropdowns are only for formal outreach programs &mdash; leave them blank if they don&rsquo;t apply.</div>
@@ -457,28 +467,27 @@
 
 <!-- 16. UNIVERSITY SERVICE -->
 <div class="section-tag">Category 16</div>
-<h1 id="university-service">16. University, Scholl/College, Regional Campus, Department service</h1>
+<h2 id="university-service">16. University, Scholl/College, Regional Campus, Department service</h2>
 <p>Enter any committee work, program support, or one-time service activities at UConn. If the activity took place in one day, enter the same date for both start and end.</p>
 
 <!-- 17. VISITING -->
 <div class="section-tag">Category 17</div>
-<h1 id="visiting">17. Visiting Professorships and Fellowships</h1>
+<h2 id="visiting">17. Visiting Professorships and Fellowships</h2>
 <p>Enter any visiting positions you held at other institutions.</p>
 
 <!-- 18. MEDIA -->
 <div class="section-tag">Category 18</div>
-<h1 id="media">18. Media Appearances &amp; Public Relations</h1>
+<h2 id="media">18. Media Appearances &amp; Public Relations</h2>
 <p>Enter any media appearances including TV, radio, podcasts, newspapers, or online platforms.</p>
 
 <!-- 19. PROFESSIONAL DEVELOPMENT -->
 <div class="section-tag">Category 19</div>
-<h1 id="prof-dev">19. Professional Development</h1>
+<h2 id="prof-dev">19. Professional Development</h2>
 <p>Enter informal educational or career-advancement activities.</p>
 
 <!-- ===== PREVIEW ACTIVITIES ===== -->
-<div class="section-tag">Optional</div>
 <h1 id="vita">Preview Your Activities</h1>
-<p>After you finish entering your activities, you do <strong>not</strong> need to submit anything. The department head will have access to your activities automatically.</p>
+<p><strong>This is optional.</strong> After you finish entering your activities, you do <strong>not</strong> need to submit anything. The department head will have access to your activities automatically.</p>
 <p>If you&rsquo;d still like a PDF of your activities for your own reference, or to double-check your entries for errors, you can generate a preview by following the steps below.</p>
 
 <div class="step"><span class="step-num">Step 1.</span><span class="step-text">On the left side of the screen, click the small down arrow next to <span class="ui">Vitas &amp; Biosketches</span>.</span></div>
@@ -493,7 +502,7 @@
 <div class="callout callout-confirm">A document will appear with your activities arranged by category.</div>
 
 <div class="step"><span class="step-num">Step 9.</span><span class="step-text">At the top of the document, change the dates:</span></div>
-<div class="sub-step">Set <span class="ui">Start Term</span> to <span class="ui">Summer 2025</span></div>
+<div class="sub-step">Set <span class="ui">Start Term</span> to <span class="ui">Summer 2023</span> (this lets the Merit Committee see books published in the past 3 years)</div>
 <div class="sub-step">Set <span class="ui">End Term</span> to <span class="ui">Spring 2026</span></div>
 <div class="step"><span class="step-num">Step 10.</span><span class="step-text">Click <span class="ui">Refresh Vita</span> so the correct date range takes effect.</span></div>
 <div class="step"><span class="step-num">Step 11.</span><span class="step-text">Review the document carefully. Make sure all your activities are listed and correct.</span></div>
@@ -522,7 +531,7 @@
 
 <div class="faq-item">
   <div class="faq-q">My advising data is wrong.</div>
-  <div class="faq-a">Advising data is imported automatically. Contact your department administrator to get it corrected.</div>
+  <div class="faq-a">Advising data is imported automatically. If your <strong>graduate</strong> advising data are wrong, make sure that your graduate student advisees have formally reported you as their major advisor through the University system. If your <strong>undergraduate</strong> advising data are wrong, contact Kathy Covey at <a href="mailto:katherine.covey@uconn.edu">katherine.covey@uconn.edu</a>.</div>
 </div>
 
 <div class="faq-item">
