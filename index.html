@@ -114,7 +114,7 @@
   @media print {
     @page { margin: 0.75in; }
     body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; padding-left: 0; }
-    .sidebar, .mobile-nav, .skip-link { display: none !important; }
+    .sidebar, .mobile-nav, .skip-link, #preview-tip { display: none !important; }
     details.checklist-wrap { display: none; }
     .main { max-width: 100%; padding: 0; }
     h1 { page-break-after: avoid; font-size: 18pt; margin-top: 24pt; }
@@ -167,6 +167,21 @@
 
 <!-- MAIN CONTENT -->
 <div class="main" id="main-content">
+
+<div class="callout callout-tip" id="preview-tip">
+  <strong>Viewing this in Teams or another preview pane?</strong> If the navigation links or the &ldquo;Join on Teams&rdquo; links don&rsquo;t respond when you click them, please download this file from the channel and open it in your browser (Chrome, Safari, or Firefox). Built-in preview panes block those clicks for security &mdash; everything works once the file is open in a real browser tab.
+</div>
+<script>
+  // Hide the preview tip when this page is hosted on the live site --
+  // it's only useful when the standalone .html file is being viewed
+  // through a sandboxed preview (Teams, Outlook, etc.).
+  (function () {
+    if (location.hostname === 'kangliw.github.io') {
+      var t = document.getElementById('preview-tip');
+      if (t) t.style.display = 'none';
+    }
+  })();
+</script>
 
 <select class="mobile-nav" aria-label="Jump to section">
   <option value="">Jump to section&hellip;</option>
